@@ -7,30 +7,26 @@ import { useState } from 'react';
  *  und dann bild anzeigen. 
 */
 
-function machMalWas (apiURL) {
-    console.log(apiURL)
-    fetch(apiURL)
-    .then((res) => {
-        console.log(res)
-    })
-    .catch((err) => console.log(err))
-    
-
-    
-   //.then((res)=>console.log(res)) /** hier kommt der lange string von der antwort des backends */
-}
-
-
-
 const Button = ({ apiURL }) => {
-    const imageData = useState("data:image/png;base64,")
+    function machMalWas (apiURL) {
+        fetch(apiURL)
+        .then((res) => { return res.text()})
+        .then(data=>{
+            setData("data:image/png;base64," + data)
+            console.log(imageData)
+        })
+        .catch((err) => console.log(err))
+       //.then((res)=>console.log(res)) /** hier kommt der lange string von der antwort des backends */
+    }
+
+    const [imageData, setData] = useState("data:image/png;base64,")
     //console.log(imageData[0])
     return (
         <div>
         <button type="button" onClick={machMalWas(apiURL)}>
           Button
         </button>
-        <img src={imageData[0]}/>
+        <img src={imageData}/>
         </div>
     );
 }
