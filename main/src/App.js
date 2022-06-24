@@ -6,7 +6,7 @@ function App() {
   
   return (
     <div className="App">
-     <Button apiURL={"localhost:9090/api/image1"}/>
+     <Button apiURL={'http://localhost:9090/api/welpen'}/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useState } from 'react';
 
 /**
  *  Wenn geklickt, soll server angesprochen werden und nach bild gefragt werden
@@ -8,13 +8,32 @@ import React from 'react';
 */
 
 function machMalWas (apiURL) {
-    alert(apiURL)
+    console.log(apiURL)
+    fetch(apiURL)
+    .then((res) => {
+        console.log(res)
+    })
+    .catch((err) => console.log(err))
+    
+
+    
+   //.then((res)=>console.log(res)) /** hier kommt der lange string von der antwort des backends */
 }
 
-const Button = ({ apiURL }) => (
-    <button type="button" onClick={machMalWas(apiURL)}>
-      Button
-    </button>
-);
+
+
+const Button = ({ apiURL }) => {
+    const imageData = useState("data:image/png;base64,")
+    //console.log(imageData[0])
+    return (
+        <div>
+        <button type="button" onClick={machMalWas(apiURL)}>
+          Button
+        </button>
+        <img src={imageData[0]}/>
+        </div>
+    );
+}
+
 
 export default Button;
