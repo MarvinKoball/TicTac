@@ -1,23 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from './components/getImageButton/button';
 
 function App() {
+  /** mehr js stuff */
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          lel
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Button apiURL={"localhost:9090/api/image1"}/>
     </div>
   );
 }
